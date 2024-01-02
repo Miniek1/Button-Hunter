@@ -19,20 +19,33 @@ body {
 
 .screen {
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+    "a clicks b"
+    "c button d"
+    "e f g";
 }
 
-.button {
+#button {
     height: 100px;
     width: 100px;
     background-color: var(--main-color-highlight);
     border: none;
     border-radius: 20;
     transition: transform 7ms;
+    place-self: center;
+    grid-area: button;
 }
 
-.button:active {
-    transform: scale(0.92);
+#button:active {
+    transform: scale(0.94);
+}
+
+#clicks {
+    font-size: 5rem;
+    grid-area: clicks;
+    justify-self: center;
+    align-self: end;
 }
