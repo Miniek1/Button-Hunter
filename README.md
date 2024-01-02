@@ -1,4 +1,3 @@
-# Clicker Game
+# Button Hunter 
 
-This is a Clicker game that I'm trying to make to learn JavaScript.
-Idk what im really gonna do with this yet so lets see
+This is a fun little Clicker Game, where the button slowly becomes unstable the more clicks it has. When it becomes unstable it moves around at the screen more and more. you need to buy upgrades to "hold it down".

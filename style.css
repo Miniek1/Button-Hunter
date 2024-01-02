@@ -17,9 +17,10 @@ body {
     background-color: var(--background);
 }
 
-.right {
-    width: 20vw;
+.screen {
+    height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -29,9 +30,9 @@ body {
     background-color: var(--main-color-highlight);
     border: none;
     border-radius: 20;
-    transition: transform 10ms;
+    transition: transform 7ms;
 }
 
 .button:active {
-    transform: scale(0.90);
+    transform: scale(0.92);
 }
