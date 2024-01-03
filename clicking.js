@@ -1,4 +1,6 @@
 var clicks = 0
+const start = 50
+
 
 function clicking() {
     clicks++
