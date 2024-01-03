@@ -31,6 +31,8 @@ body {
 #hamburger {
     grid-area: hamburger;
     margin: 1rem;
+    transform: translate(0, -30%);
+    transition: transform 300ms ease-out;
 }
 
 #hamburger span {
@@ -50,12 +52,15 @@ body {
     position: absolute;
     opacity: 0;
     cursor: pointer;
+    transform: translate(0, -30%);
 }
 
 #shop {
     grid-area: shop;
     margin: 1.4rem;
     justify-self: right;
+    transform: translate(0, -30%);
+    transition: transform 300ms ease-out;
 }
 
 #shop span:nth-child(2) {
@@ -71,7 +76,7 @@ body {
 #shop span:nth-child(3) {
     display: block;
     width: 3rem;
-    height: 1.2rem;
+    height: 1.3rem;
     background-color: var(--main-color-highlight);
 
 }
@@ -79,10 +84,11 @@ body {
 #shop input {
     display: block;
     width: 3rem;
-    height: 2.2rem;
+    height: 2.3rem;
     position: absolute;
     opacity: 0;
     cursor: pointer;
+    transform: translate(0, -30%);
 }
 
 #button {
