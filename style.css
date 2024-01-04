@@ -24,8 +24,8 @@ body {
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas: 
     "hamburger clicks shop"
-    "c button d"
-    "e f g";
+    "d  button f"
+    "g h i";
 }
 
 #hamburger {
