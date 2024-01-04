@@ -51,8 +51,8 @@ function clicking() {
 };
 
 function ShowTheGoods() {
-    document.getElementById('shop').style.transform = "translate(0, 0)";
-    document.getElementById('hamburger').style.transform = "translate(0, 0)";
+    document.getElementById('shop-button').style.transform = "translate(0, 0)";
+    document.getElementById('hamburger-button').style.transform = "translate(0, 0)";
     document.getElementById('checkbox1').style.transform = "translate(0, 0)";
     document.getElementById('checkbox2').style.transform = "translate(0, 0)";
 };
@@ -60,3 +60,5 @@ function ShowTheGoods() {
 function Hamburger() {
 
 }
+
+document.getElementById("button").addEventListener('click', clicking)
