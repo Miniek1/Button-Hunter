@@ -136,6 +136,7 @@ body {
     margin-right: 1rem;
     border-radius: 5px;
     transition: all 50ms;
+    cursor: pointer;
 }
 
 #button {
