@@ -3,7 +3,7 @@ var totalclicks = 0;
 var clickperclick = 1;
 var ui = false;
 var shop = false;
-
+var OneClickPrice = "50";
 
 // Don't touch this, it somehow works
 function setCookie(cname,cvalue,exdays) {
@@ -33,8 +33,10 @@ function getCookie(cname) {
 var totalclicks = getCookie("totalclicks")
 
 if (totalclicks > 0) {
-    var ui = getCookie("ui")
-    var clicks = getCookie("clicks")
+    var ui = getCookie("ui");
+    var clicks = getCookie("clicks");
+    var clickperclick = getCookie("clickperclick");
+    var OneClickPrice = getCookie("OneClickPrice");
 }
 
 if (ui === "true") {
@@ -46,6 +48,9 @@ if (clicks != "0") {
     document.getElementById('clicks').innerHTML = parseInt(clicks);
 }
 
+if (OneClickPrice != 50) {
+    document.getElementById('buy-button').innerHTML = parseInt(OneClickPrice);
+}
 
 
 function clicking() {
@@ -102,7 +107,22 @@ function BuyButtonEffect() {
     }, 50);
 }
 
+function OneClickUpgrade() {
+    if (clicks >= OneClickPrice) {
+        parseInt(clickperclick++);
+        setCookie("clickperclick", clickperclick, 999999);
+        setCookie("clicks", clicks, 999999)
+
+        clicks = clicks - OneClickPrice;
+        document.getElementById('clicks').innerHTML = parseInt(clicks);
+        OneClickPrice = OneClickPrice * 1.5;
+        setCookie("OneClickPrice", parseInt(OneClickPrice), 999999)
+        document.getElementById('buy-button').innerHTML = parseInt(OneClickPrice);
+    }
+}
+
 document.getElementById("button").addEventListener('click', clicking);
 document.getElementById("button").addEventListener('click', ButtonEffects);
 document.getElementById("shop-button").addEventListener('click', ShopMenu);
 document.getElementById("buy-button").addEventListener('click', BuyButtonEffect);
+document.getElementById("buy-button").addEventListener('click', OneClickUpgrade);
