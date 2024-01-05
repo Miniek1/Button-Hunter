@@ -41,7 +41,6 @@ if (totalclicks > 0) {
 
 if (ui === "true") {
     ShowTheGoods();
-    console.log("Showing the UI...");
 }
 
 if (clicks != "0") { 
@@ -63,26 +62,26 @@ function abbrNum(number, decPlaces) {
     // Go through the array backwards, so we do the largest first
     for (var i = abbrev.length - 1; i >= 0; i--) {
 
-    // Convert array index to "1000", "1000000", etc
-    var size = Math.pow(10, (i + 1) * 3);
+        // Convert array index to "1000", "1000000", etc
+        var size = Math.pow(10, (i + 1) * 3);
 
-      // If the number is bigger or equal do the abbreviation
-    if (size <= number) {
-    // Here, we multiply by decPlaces, round, and then divide by decPlaces.
-    // This gives us nice rounding to a particular decimal place.
-    number = Math.round(number * decPlaces / size) / decPlaces;
+          // If the number is bigger or equal do the abbreviation
+        if (size <= number) {
+            // Here, we multiply by decPlaces, round, and then divide by decPlaces.
+            // This gives us nice rounding to a particular decimal place.
+            number = Math.round(number * decPlaces / size) / decPlaces;
 
-    // Handle special case where we round up to the next abbreviation
-    if ((number == 1000) && (i < abbrev.length - 1)) {
-        number = 1;
-        i++;
-    }
+            // Handle special case where we round up to the next abbreviation
+            if ((number == 1000) && (i < abbrev.length - 1)) {
+                number = 1;
+                i++;
+            }
 
-        // Add the letter for the abbreviation
-        number += abbrev[i];
+            // Add the letter for the abbreviation
+            number += abbrev[i];
 
-        // We are done... stop
-        break;
+            // We are done... stop
+            break;
         }
     }
 
@@ -100,13 +99,11 @@ function clicking() {
     if (totalclicks === 50) {
         setCookie("ui", true, 999999)
         ShowTheGoods();
-        console.log("Showing the UI...");
     }
 }
 
 function ButtonEffects() {
     document.getElementById("button").style.transform = "scale(0.9)";
-    console.log("Changed Scale.");
     setTimeout(() => {
         document.getElementById("button").style.transform = "scale(1.0)";
     }, 50);
@@ -127,7 +124,6 @@ function ShopMenu() {
     if (shop === false) {
         document.getElementById('shop-menu').style.transform = "translate(0, 0)";
         document.getElementById('shop-menu').style.transition = "transition: transform 0.3s ease-in;";
-        console.log("Showing the shop");
         shop = true;
     } else if (shop) {
         document.getElementById('shop-menu').style.transform = "translate(100%, 0)";
