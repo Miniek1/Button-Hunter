@@ -26,6 +26,7 @@ body {
     "hamburger clicks shop"
     "d  button f"
     "g h i";
+    overflow: hidden;
 }
 
 #hamburger-button {
@@ -33,6 +34,7 @@ body {
     margin: 1rem;
     transform: translate(0, -30%);
     transition: transform 300ms ease-out;
+    z-index: 9999;
 }
 
 #hamburger-button span {
@@ -61,6 +63,7 @@ body {
     justify-self: right;
     transform: translate(0, -30%);
     transition: transform 300ms ease-out;
+    z-index: 99999;
 }
 
 #shop-button span:nth-child(2) {
@@ -89,6 +92,24 @@ body {
     opacity: 0;
     cursor: pointer;
     transform: translate(0, -30%);
+}
+
+#shop-menu {
+    height: calc(100vh - 6px);
+    max-width: 100%;
+    background-color: var(--dark-color-highlight);
+    border-style: solid;
+    border-right-width: 0;
+    border-color: var(--secondary-color-highlight);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    z-index: 1;
+    transition: transform 0.3s ease-out;
+
+    grid-area: 1 / 2 / 4 / 4;
+    margin-left: 35%;
+
+    transform: translate(100%, 0)
 }
 
 #button {
