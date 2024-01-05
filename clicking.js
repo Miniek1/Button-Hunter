@@ -1,5 +1,6 @@
 var clicks = 0;
 var totalclicks = 0;
+var clickperclick = 1;
 var ui = "false";
 var shop = false;
 
@@ -27,20 +28,23 @@ function getCookie(cname) {
     return "";
 }
 
-var ui = getCookie("ui")
-var clicks = getCookie("clicks")
+var totalclicks = getCookie("totalclicks")
+if (totalclicks > 0) {
+    var ui = getCookie("ui")
+    var clicks = getCookie("clicks")
+}
 
 if (ui === "true") {
     ShowTheGoods();
     console.log("Showing the UI...");
 }
 
-if (clicks != 0) { 
-    document.getElementById('clicks').innerHTML = clicks;
+if (clicks != "0") { 
+    document.getElementById('clicks').innerHTML = parseInt(clicks);
 }
 function clicking() {
-    clicks++;
-    totalclicks++
+    clicks = parseInt(clicks) + parseInt(clickperclick);
+    totalclicks++;
     document.getElementById('clicks').innerHTML = clicks;
 
     setCookie("clicks", clicks, 999999)
