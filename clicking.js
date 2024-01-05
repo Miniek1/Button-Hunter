@@ -95,7 +95,14 @@ function ShopMenu() {
     }
 }
 
+function BuyButtonEffect() {
+    document.getElementById("buy-button").style.filter = "brightness(90%)"
+    setTimeout(() => {
+        document.getElementById("buy-button").style.filter = "brightness(100%)"
+    }, 50);
+}
 
 document.getElementById("button").addEventListener('click', clicking);
 document.getElementById("button").addEventListener('click', ButtonEffects);
 document.getElementById("shop-button").addEventListener('click', ShopMenu);
+document.getElementById("buy-button").addEventListener('click', BuyButtonEffect);
