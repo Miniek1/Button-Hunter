@@ -4,6 +4,7 @@ var clickperclick = 1;
 var ui = false;
 var shop = false;
 
+
 // Don't touch this, it somehow works
 function setCookie(cname,cvalue,exdays) {
     const d = new Date();
@@ -28,7 +29,9 @@ function getCookie(cname) {
     return "";
 }
 
+
 var totalclicks = getCookie("totalclicks")
+
 if (totalclicks > 0) {
     var ui = getCookie("ui")
     var clicks = getCookie("clicks")
@@ -42,6 +45,9 @@ if (ui === "true") {
 if (clicks != "0") { 
     document.getElementById('clicks').innerHTML = parseInt(clicks);
 }
+
+
+
 function clicking() {
     clicks = parseInt(clicks) + parseInt(clickperclick);
     totalclicks++;
@@ -55,6 +61,14 @@ function clicking() {
         ShowTheGoods();
         console.log("Showing the UI...");
     }
+}
+
+function ButtonEffects() {
+    document.getElementById("button").style.transform = "scale(0.9)";
+    console.log("Changed Scale.");
+    setTimeout(() => {
+        document.getElementById("button").style.transform = "scale(1.0)";
+    }, 50);
 }
 
 function ShowTheGoods() {
@@ -81,5 +95,7 @@ function ShopMenu() {
     }
 }
 
+
 document.getElementById("button").addEventListener('click', clicking);
+document.getElementById("button").addEventListener('click', ButtonEffects);
 document.getElementById("shop-button").addEventListener('click', ShopMenu);
