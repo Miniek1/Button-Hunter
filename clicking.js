@@ -1,7 +1,6 @@
 var clicks = 0;
 var totalclicks = 0;
 var clickperclick = 1;
-var ui = false;
 var shop = false;
 var OneClickPrice = "50";
 
@@ -33,13 +32,12 @@ function getCookie(cname) {
 var totalclicks = getCookie("totalclicks")
 
 if (totalclicks > 0) {
-    var ui = getCookie("ui");
     var clicks = getCookie("clicks");
     var clickperclick = getCookie("clickperclick");
     var OneClickPrice = getCookie("OneClickPrice");
 }
 
-if (ui === "true") {
+if (totalclicks >= 50) {
     ShowTheGoods();
 }
 
@@ -97,7 +95,6 @@ function clicking() {
     setCookie("totalclicks", totalclicks, 999999)
 
     if (totalclicks === 50) {
-        setCookie("ui", true, 999999)
         ShowTheGoods();
     }
 }
