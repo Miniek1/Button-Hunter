@@ -5,6 +5,7 @@ var shop = false;
 var OneClickUpgrade = 0;
 var OneClickPrice = 50;
 
+
 // Don't touch this, it somehow works
 function setCookie(cname,cvalue,exdays) {
     const d = new Date();
@@ -129,6 +130,11 @@ function ShopMenu() {
     }
 }
 
+function UpgradeFormula(basePrice, priceMultiplyer, level) {
+    price = basePrice * Math.pow(level, (1 + priceMultiplyer));
+    return price;
+}
+
 function BuyButtonEffect() {
     document.getElementById("buy-button").style.filter = "brightness(90%)"
     setTimeout(() => {
@@ -146,7 +152,7 @@ function UpgradeOneClick() {
 
         clicks = clicks - OneClickPrice;
         document.getElementById('clicks').innerHTML = abbrNum(parseInt(clicks), 1);
-        OneClickPrice = Math.pow(4, parseInt(OneClickUpgrade)) + 50;
+        OneClickPrice = UpgradeFormula(50, 0.8, OneClickUpgrade)
 
         setCookie("OneClickUpgrade", parseInt(OneClickUpgrade), 999999)
         setCookie("OneClickPrice", OneClickPrice, 999999)
