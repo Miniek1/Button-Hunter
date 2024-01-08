@@ -160,6 +160,12 @@ function UpgradeOneClick() {
     }
 }
 
+function UpgradeClick(price) {
+    console.log(price)
+
+    BuyButtonEffect()    
+}
+
 document.getElementById("button").addEventListener('click', clicking);
 document.getElementById("button").addEventListener('click', ButtonEffects);
 document.getElementById("shop-button").addEventListener('click', ShopMenu);
