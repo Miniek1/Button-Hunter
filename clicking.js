@@ -2,9 +2,9 @@ var clicks = 0;
 var totalclicks = 0;
 var clickperclick = 1;
 var shop = false;
-var OneClickUpgrade = 0;
-var OneClickPrice = 50;
 
+price = 50
+var OneUpgrade = 0;
 
 // Don't touch this, it somehow works
 function setCookie(cname,cvalue,exdays) {
@@ -36,7 +36,6 @@ var totalclicks = getCookie("totalclicks")
 if (totalclicks > 0) {
     var clicks = getCookie("clicks");
     var clickperclick = getCookie("clickperclick");
-    var OneClickUpgrade = getCookie("OneClickUpgrade");
     var OneClickPrice = getCookie("OneClickPrice");
 
     document.getElementById('buy-button').innerHTML = abbrNum(parseInt(OneClickPrice), 1);
@@ -160,14 +159,81 @@ function UpgradeOneClick() {
     }
 }
 
-function UpgradeClick(price) {
-    console.log(price)
 
-    BuyButtonEffect()    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function UpgradeClick(upgrade) {
+    if (clicks >= price) {
+
+        clickperclick = parseInt(clickperclick) + upgrade;
+        setCookie("clickperclick", clickperclick, 999999);
+        
+        console.log(OneUpgrade)
+
+        if (upgrade == 1) {
+            if (getCookie(OneUpgrade) != 0) {
+                OneUpgrade = getCookie(OneUpgrade);
+                console.log("hi");
+            }
+            OneUpgrade++;
+            setCookie("OneUpgrade", OneUpgrade, 999999);
+
+            document.getElementById('buy-button').innerHTML = abbrNum(parseInt(OneClickPrice), 1);
+            OneClickPrice = UpgradeFormula(50, 0.8, OneUpgrade);
+            
+            setCookie("OneClickPrice", OneClickPrice, 999999)
+            price = OneClickPrice;
+
+            clicks = clicks - OneClickPrice;
+            document.getElementById('clicks').innerHTML = abbrNum(parseInt(clicks), 1);
+
+            BuyButtonEffect();
+        }
+    }
+
+    if (upgrade === 5) {
+        let level;
+
+        level++
+    }
+
+
+
+
+
+
+
+    BuyButtonEffect();
+
 }
 
 document.getElementById("button").addEventListener('click', clicking);
 document.getElementById("button").addEventListener('click', ButtonEffects);
 document.getElementById("shop-button").addEventListener('click', ShopMenu);
-document.getElementById("buy-button").addEventListener('click', BuyButtonEffect);
-document.getElementById("buy-button").addEventListener('click', UpgradeOneClick);
+//document.getElementById("buy-button").addEventListener('click', BuyButtonEffect);
+//document.getElementById("buy-button").addEventListener('click', UpgradeOneClick);
